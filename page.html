@@ -3,49 +3,27 @@
 <title>test2</title>
 <meta name="viewport" content="width=device-width" />   
 </head>
+<meta name='apple-itunes-app' content='app-id=477927812'>
 <body>
 <h2>
 hello world!!!!!!
 </h2>
- 		
-          
-<script type="text/javascript">   
-
-var scheme_link = $(this).data("fb://events");
-var download_link = $(this).data("itms://itunes.apple.com/us/app/facebook/id284882215?mt=8&uo=6");
-var redirected = false;
-setTimeout(function() {
-  window.location = scheme_link;
-}, 25);
-window.location = download_link;
-
-loadDateTime = new Date();
-setTimeout(function() {
-  var timeOutDateTime;
-  timeOutDateTime = new Date();
-  if (timeOutDateTime - loadDateTime < 5000) {
-    window.location = download_link;
-  }
-}, 1000);
-window.location = scheme_link;
-
-if (navigator.userAgent.match(/FBIOS/i)) {
-  document.writeln("請按上或下方的箭頭，選擇「在 Safari 開啟」以繼續進行活動。");
-  return;
-}
-
-if (+navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i)[2] >= 41) {
-  window.location = scheme_link;
-  setTimeout(function() {
-    if (!document.webkitHidden && !redirected) {
-      redirected = true;
-      window.location = download_link;
-    }
-  }, 1000);
-} else {
-  window.location = scheme_link;
-  alert("若您看到錯誤畫面，請先安裝 某某 App 喔！");
-}
-</script>
+<h2><a id="applink1" href="mtcmtc://profile/116201417">url</a></h2>   
+<meta name='apple-itunes-app' content='app-id=477927812'>   
+<!-- a标签的链接，设置为对应的下载链接；点击打开的动作，在click事件中注册 -->  
+<a href="spotify://" id="openApp">have spotify?</a>  
+<script type="text/javascript">  
+    document.getElementById('openApp').onclick = function(e){  
+        // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为  
+        // 否则打开a标签的href链接  
+        var ifr = document.createElement('iframe');  
+        ifr.src = 'itms://itunes.apple.com/us/app/facebook/id284882215?mt=8&uo=6';  
+        ifr.style.display = 'none';  
+        document.body.appendChild(ifr);  
+        window.setTimeout(function(){  
+            document.body.removeChild(ifr);  
+        },3000)  
+    };  
+</script>  
 </body>
 </html>
