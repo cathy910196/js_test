@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>test2</title>
+<meta name="viewport" content="width=device-width" />   
+</head>
+<body>
+<h2>
+hello world!!!!!!
+</h2>
+ 		
+          
+<script type="text/javascript">   
+
+var scheme_link = $(this).data("fb://events");
+var download_link = $(this).data("itms://itunes.apple.com/us/app/facebook/id284882215?mt=8&uo=6");
+var redirected = false;
+setTimeout(function() {
+  window.location = scheme_link;
+}, 25);
+window.location = download_link;
+
+loadDateTime = new Date();
+setTimeout(function() {
+  var timeOutDateTime;
+  timeOutDateTime = new Date();
+  if (timeOutDateTime - loadDateTime < 5000) {
+    window.location = download_link;
+  }
+}, 1000);
+window.location = scheme_link;
+
+if (navigator.userAgent.match(/FBIOS/i)) {
+  document.writeln("請按上或下方的箭頭，選擇「在 Safari 開啟」以繼續進行活動。");
+  return;
+}
+
+if (+navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i)[2] >= 41) {
+  window.location = scheme_link;
+  setTimeout(function() {
+    if (!document.webkitHidden && !redirected) {
+      redirected = true;
+      window.location = download_link;
+    }
+  }, 1000);
+} else {
+  window.location = scheme_link;
+  alert("若您看到錯誤畫面，請先安裝 某某 App 喔！");
+}
+</script>
+</body>
+</html>
