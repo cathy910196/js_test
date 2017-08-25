@@ -1,29 +1,17 @@
 <html>
 <head>
 <title>test2</title>
-<meta name="viewport" content="width=device-width" />   
 </head>
-<meta name='apple-itunes-app' content='app-id=477927812'>
 <body>
 <h2>
 hello world!!!!!!
 </h2>
-<h2><a id="applink1" href="mtcmtc://profile/116201417">url</a></h2>   
-<meta name='apple-itunes-app' content='app-id=477927812'>   
-<!-- a标签的链接，设置为对应的下载链接；点击打开的动作，在click事件中注册 -->  
-<a href="spotify://" id="openApp">have spotify?</a>  
 <script type="text/javascript">  
-    document.getElementById('openApp').onclick = function(e){  
-        // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为  
-        // 否则打开a标签的href链接  
-        var ifr = document.createElement('iframe');  
-        ifr.src = 'itms://itunes.apple.com/us/app/facebook/id284882215?mt=8&uo=6';  
-        ifr.style.display = 'none';  
-        document.body.appendChild(ifr);  
-        window.setTimeout(function(){  
-            document.body.removeChild(ifr);  
-        },3000)  
-    };  
+  // check whether facebook is (likely to be) installed or not
+if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]) {
+    // Safe to launch the facebook app
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/200538917420"]];
+}
 </script>  
 </body>
 </html>
