@@ -1,0 +1,22 @@
+<html>
+<title>連結</title>
+<meta name="viewport" content="width=device-width,
+ initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script type="text/javascript">
+    function startMyApp(url)
+    {
+      document.location = url;
+      setTimeout( function()
+      {
+           if( confirm( '你還沒安裝旅遊尋寶王，快去安裝吧~'))
+          {
+            document.location = 'https://itunes.apple.com/cn/app/qq-you-xiang/id473225145?mt=8';
+          }
+      }, 500);
+     }
+</script>
+<body>
+    <a href="#" onclick="startMyApp('cocomen://')">連結</a>
+    <P>
+</body>
+</html>
