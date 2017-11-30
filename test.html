@@ -14,6 +14,57 @@
           }
       }, 500);
      }
+     function openOrDownloadURL() {
+
+ var AppURL = “http://w3.pinpinbox.com/index";
+
+//設定格式 scheme://host pathPrefix
+
+ var DownloadURL = "https://play.google.com/store/apps/details?id=com.pinpinbox_vmage";
+
+//googleplay商店連結
+
+ if (navigator.userAgent.match(/Android/)) {
+
+ if (navigator.userAgent.match(/Chrome/)) {
+
+ window.location = "Intent://w3.pinpinbox.com/index#Intent;scheme=http;package=com.pinpinbox;end;"
+
+//格式為 intent://host/profile#Intent;scheme=scheme;package=package_name;end;
+
+ } else {
+
+ var iframe = document.createElement("iframe");
+
+ iframe.style.border = "none";
+
+ iframe.style.width = "1px";
+
+ iframe.style.height = "1px";
+
+ iframe.onload = function() {
+
+ window.location = DownloadURL;
+
+ };
+
+ iframe.src = AppURL;
+
+ document.body.appendChild(iframe);
+
+ 
+
+ }
+
+ } else {
+
+ // Not Android mobile
+
+ window.location = DownloadURL;
+
+ }
+
+}
 </script>
 <body>
     <a href="cocomen://">123</a>
@@ -21,6 +72,13 @@
 <a href="urlschemel://auth_activity">open cocomen</a>
     <P>
     <a href="#" onclick="startMyApp('cocomen://4eJVjXT1l%2fzXDLABoYcoVUM5YtTGLWx0HRmtNNXCN3xALsuh6eaU%2bg%3d%3d')">連結</a>
+
+<a href="appstore位址“>Go to Google Play</a>
+<a href="scheme://host pathPrefix“>Select you app</a>
+<a href=“intent://host/
+profile#Intent;scheme=scheme;package=package_name;end;”>link</a>
+<a href=“javascript:openOrDownloadURL();">test5</a>
+
     <P>
 </body>
 </html>
