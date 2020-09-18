@@ -17,13 +17,13 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.yourCompany.productName</string>
+				<string>com.neonlight.test05</string>
 				<key>bundle-version</key>
 				<string>1.0.0</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>
-				<string>hello_by_cathy</string>
+				<string>test05</string>
 			</dict>
 		</dict>
 	</array>
